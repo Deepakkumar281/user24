@@ -17,6 +17,7 @@ import {Fonts} from '../common/Fonts';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import axios from 'axios';
 import configuration from '../Api/apiconfig';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Otp = ({navigation, route}) => {
   const Phonenumber = route?.params?.phone;
@@ -46,8 +47,10 @@ const Otp = ({navigation, route}) => {
         mobileNumber: Phonenumber,
         otp: fullOtp,
       });
-      console.log('🚀 ~ handleVerifyOtp ~ response:', response.data);
-
+      console.log('🚀 ~ handleVerifyOtp ~ response:', response.data.data);
+      await AsyncStorage.setItem('Phoneno', Phonenumber);
+      await AsyncStorage.setItem('Token', response.data.data.token);
+      await AsyncStorage.setItem('userid', response.data.data.user_id);
       if (response.data.status) {
         navigation.navigate('home');
       } else {

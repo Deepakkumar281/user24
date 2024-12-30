@@ -42,6 +42,7 @@ import Addfavorites from '../editprofile/Addfavorites';
 import Emergency from '../editprofile/Emergency';
 import Delete from '../editprofile/Delete';
 import RReviewbooking from '../localrides/Ridereview';
+import Fromloacation from '../localrides/Fromlocation';
 
 const Stack = createStackNavigator();
 
@@ -51,12 +52,14 @@ const Stacknav = () => {
       screenOptions={{
         headerShown: false,
       }}
+      x
       initialRouteName="splash">
-      {/* <Stack.Screen name="splash" component={Splash} />
-      <Stack.Screen name="intro1" component={Intro1} /> */}
+      <Stack.Screen name="splash" component={Splash} />
+      <Stack.Screen name="intro1" component={Intro1} />
       <Stack.Screen name="register" component={Register} />
       <Stack.Screen name="otp" component={Otp} />
       <Stack.Screen name="home" component={Home} />
+      <Stack.Screen name="Fromloacation" component={Fromloacation} />
       <Stack.Screen name="searchlocation" component={Searchlocation} />
       <Stack.Screen name="confirmride" component={Confirmride} />
       <Stack.Screen name="picktime" component={Picktime} />
